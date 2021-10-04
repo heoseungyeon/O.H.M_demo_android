@@ -29,7 +29,7 @@ public class MapActivity extends AppCompatActivity {
         //true면 앱 실행 시 애니메이션 효과가 나오고 false면 애니메이션이 나오지않음.
         mapView.setMapCenterPoint(mapPoint, true);
 
-        //mapView.setPOIItemEventListener(markerEventListener);
+        mapView.setPOIItemEventListener(markerEventListener);
 //        // 구현한 CalloutBalloonAdapter 등록
         //mapView.setCalloutBalloonAdapter(new CustomCalloutBalloonAdapter());
 
@@ -44,6 +44,14 @@ public class MapActivity extends AppCompatActivity {
         // 마커를 클릭했을때, 기본으로 제공하는 RedPin 마커 모양.
         marker.setSelectedMarkerType(MapPOIItem.MarkerType.RedPin);
         mapView.addPOIItem(marker);
+
+//        marker.getCustomCalloutBalloon().setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(getApplicationContext(), DetailActivity.class);
+//                startActivity(intent);
+//            }
+//        });
 
         ViewGroup mapViewContainer = (ViewGroup) findViewById(R.id.map_view);
 
@@ -70,6 +78,8 @@ public class MapActivity extends AppCompatActivity {
 
         @Override
         public View getPressedCalloutBalloon(MapPOIItem poiItem) {
+            Intent intent = new Intent(getApplicationContext(), DetailActivity.class);
+            startActivity(intent);
             return null;
         }
     }
@@ -80,7 +90,7 @@ public class MapActivity extends AppCompatActivity {
         public void onPOIItemSelected(MapView mapView, MapPOIItem mapPOIItem) {
             // 마커 클릭 시
             System.out.println("111");
-            Intent intent = new Intent(getApplicationContext(), InfoActivity.class);
+            Intent intent = new Intent(getApplicationContext(), DetailActivity.class);
             startActivity(intent);
         }
 
@@ -94,7 +104,7 @@ public class MapActivity extends AppCompatActivity {
         public void onCalloutBalloonOfPOIItemTouched(MapView mapView, MapPOIItem mapPOIItem, MapPOIItem.CalloutBalloonButtonType calloutBalloonButtonType) {
             // 말풍선 클릭 시
             System.out.println("222");
-            Intent intent = new Intent(getApplicationContext(), InfoActivity.class);
+            Intent intent = new Intent(getApplicationContext(), DetailActivity.class);
             startActivity(intent);
         }
 
