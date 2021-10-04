@@ -1,2 +1,2 @@
-# ORM_demo_android
-OHM demo버전 앱 : 건물 유지관리를 위한 수선항목과 각 항목별 시기에 관한 정보를 제공
+# O.H.M_demo_android
+O.H.M demo버전 앱 : 건물 유지관리를 위한 수선항목과 각 항목별 시기에 관한 정보를 제공
